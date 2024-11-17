@@ -1,0 +1,31 @@
+- name: Configure master and worker nodes
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt packages (Ubuntu example)
+      apt:
+        update_cache: yes
+
+- name: Configure master node
+  hosts: master
+  become: yes
+  tasks:
+    - name: Install master-specific packages
+      apt:
+        name: nginx  # example package
+        state: present
+
+    - name: Configure master node settings
+      command: echo "Configured as master node"
+
+- name: Configure worker nodes
+  hosts: worker
+  become: yes
+  tasks:
+    - name: Install worker-specific packages
+      apt:
+        name: apache2  # example package
+        state: present
+
+    - name: Configure worker node settings
+      command: echo "Configured as worker node"

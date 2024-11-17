@@ -1,0 +1,4 @@
+# If you need default variables, you can define them here
+
+---
+nginx_port: 80

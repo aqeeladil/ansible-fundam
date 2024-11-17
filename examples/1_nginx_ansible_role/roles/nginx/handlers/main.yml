@@ -1,0 +1,8 @@
+# Handler to restart Nginx if necessary
+
+---
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restarted
+  become: yes

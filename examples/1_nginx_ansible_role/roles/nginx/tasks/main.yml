@@ -1,0 +1,21 @@
+#  Tasks to install and start the Nginx server.
+
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Start Nginx service
+  service:
+    name: nginx
+    state: started
+    enabled: true
+
+- name: Copy Nginx configuration
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify: Restart Nginx
