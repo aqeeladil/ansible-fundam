@@ -1,6 +1,6 @@
 # Setting up threee EC2 instances on AWS using Terraform and then configuring one as the master and the other two as worker nodes using Ansible.
 
-creates three EC2 instances using Terraform, then configures 
+Creates three EC2 instances using Terraform, then configures 
 
 **Initialize and Apply Terraform**
 ```bash
