@@ -1,0 +1,4 @@
+- name: Create EC2 Instance
+  hosts: localhost
+  roles:
+    - ec2

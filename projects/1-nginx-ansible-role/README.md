@@ -2,7 +2,10 @@
 
 **Create an Ansible role to set up an Nginx web server.**
 ```bash
-mkdir -p nginx/{tasks,handlers,templates,files,vars,defaults,meta} && touch nginx/README.md
+mkdir -p roles/nginx/{tasks,handlers,templates,defaults}
+
+# Or fetch a role using ansible galaxy
+ansible-galaxy role init nginx 
 ```
 
 **Run the Playbook**

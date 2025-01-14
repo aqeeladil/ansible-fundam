@@ -1,0 +1,11 @@
+all:
+  hosts:
+    Ubuntu-1:
+      ansible_host: <IP_OF_UBUNTU_1>
+      ansible_user: ubuntu
+    Ubuntu-2:
+      ansible_host: <IP_OF_UBUNTU_2>
+      ansible_user: ubuntu
+    AmazonLinux:
+      ansible_host: <IP_OF_AMAZON_LINUX>
+      ansible_user: ec2-user

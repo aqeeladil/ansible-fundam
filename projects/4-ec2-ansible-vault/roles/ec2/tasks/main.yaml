@@ -1,0 +1,14 @@
+- name: Launch EC2 instance
+  amazon.aws.ec2_instance:
+    instance_type: "{{ instance_type }}"
+    image_id: "{{ image_id }}"
+    region: "{{ region }}"
+    key_name: "{{ key_name }}"
+    security_group: "{{ security_group }}"
+    aws_access_key: "{{ AWS_ACCESS_KEY }}"
+    aws_secret_key: "{{ AWS_SECRET_KEY }}"
+  register: ec2_result
+
+- name: Display EC2 instance details
+  debug:
+    msg: "{{ ec2_result }}"

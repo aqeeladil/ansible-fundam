@@ -1,0 +1,5 @@
+instance_type: t2.micro
+region: us-east-1
+image_id: ami-0abcdef1234567890
+key_name: my-key-pair
+security_group: my-security-group

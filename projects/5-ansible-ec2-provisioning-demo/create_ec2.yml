@@ -1,0 +1,19 @@
+- name: Provision EC2 instances
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Provision instances on AWS
+      amazon.aws.ec2_instance:
+        name: "{{ item.name }}"
+        instance_type: t2.micro
+        image_id: "{{ item.image_id }}"
+        key_name: "your_key_pair"
+        region: ap-south-1
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        wait: true
+      loop:
+        - { name: "Ubuntu-1", image_id: "ami-12345678" }
+        - { name: "Ubuntu-2", image_id: "ami-12345678" }
+        - { name: "AmazonLinux", image_id: "ami-87654321" }
