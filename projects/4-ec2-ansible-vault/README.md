@@ -1,4 +1,4 @@
-# Secure AWS Resource Provisioning Using Ansible and Vault
+# Secure AWS Resource Provisioning Using Ansible Vault
 
 Creating an EC2 instance on AWS using Ansible with proper configurations, including variables, Ansible Vault, and collections.
 
