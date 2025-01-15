@@ -1,0 +1,28 @@
+---
+- name: Demonstration of Error Handling in Ansible
+  hosts: all
+  become: true
+  tasks:
+    - name: Verify if Docker is installed
+      ansible.builtin.command: docker --version
+      register: docker_check
+      ignore_errors: yes
+
+    - name: Debug Docker verification output
+      ansible.builtin.debug:
+        var: docker_check
+
+    - name: Install Docker if not installed
+      ansible.builtin.apt:
+        name: docker.io
+        state: present
+      when: docker_check.failed
+
+    - name: Verify Docker installation post-installation
+      ansible.builtin.command: docker --version
+      register: post_install_check
+
+    - name: Print Docker installation confirmation
+      ansible.builtin.debug:
+        msg: "Docker successfully installed and verified."
+      when: not post_install_check.failed
