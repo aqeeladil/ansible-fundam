@@ -1,0 +1,13 @@
+- name: Enforce S3 bucket versioning
+  hosts: localhost
+  gather_facts: false  # Disable gathering unnecessary system facts
+  tasks:
+    - name: List all S3 buckets
+      amazon.aws.s3_bucket_info:  # AWS module to list S3 buckets
+      register: result  # Save the output into a variable
+
+    - name: Enable versioning on all S3 buckets
+      loop: "{{ result.buckets }}"  # Iterate over the list of buckets
+      amazon.aws.s3_bucket:  # AWS module to manage S3 buckets
+        name: "{{ item.name }}"  # Use the bucket name from the loop
+        versioning: yes  # Enable versioning
